@@ -27,28 +27,21 @@ const arrayNew = numbers.reduce(
 )
 console.log(arrayNew[0], arrayNew[1])
 
-/* 2️⃣ sumPosNeg — 1 балл
-Напишите функцию, которая вернёт массив из двух чисел: сумма положительных и сумма отрицательных.
-Бонус (+1 балл): использовать результат из задачи 1. */
-
-function sumPosNeg(arr) {
-  const [positives, negatives] = getPosNegArrays(numbers)
-
-  let sumPos = 0
-  let sumNeg = 0
-
-  for (let i = 0; i < positives.length; i++) {
-    sumPos += positives[i]
-  }
-
-  for (let i = 0; i < negatives.length; i++) {
-    sumNeg += negatives[i]
-  }
-
-  return [sumPos, sumNeg]
+const numbers = [5, -2, 8, -7, 3, 0, 12, -4, 9, 6, -5, 11]
+const arFunc = [
+  function addTen(a) {
+    return a + 10
+  },
+  function multiplyByTwo(a) {
+    return a * 2
+  },
+  function modSeven(a) {
+    return a % 7
+  },
+]
+function pipelineNumbers(numbers, functions) {
+  return numbers.map(number =>
+    functions.reduce((result, func) => func(result), number),
+  )
 }
-
-const [sumPos, sumNeg] = sumPosNeg(numbers)
-
-console.log(sumPos)
-console.log(sumNeg)
+console.log()
